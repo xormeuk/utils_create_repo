@@ -1,0 +1,30 @@
+name: Build and Artifact create_repo
+
+on: [push]
+
+jobs:
+  build:
+    name: Build create_repo Binary
+    runs-on: ubuntu-latest
+    
+    container:
+      image: golang:latest
+    
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '^1.17' # Adjust as needed for your Go version requirements
+    
+    - name: Build create_repo
+      run: |
+        go build -v -o create_repo create_repo.go
+    
+    - name: Archive create_repo binary
+      uses: actions/upload-artifact@v2
+      with:
+        name: create_repo-binary
+        path: ./create_repo
