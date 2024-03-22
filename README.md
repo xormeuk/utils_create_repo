@@ -27,6 +27,7 @@ Clone this repository and build the `create_repo` executable:
 git clone https://github.com/xormeuk/create_repo.git
 cd create_repo
 go build -o create_repo create_repo.go
+```
 
 ### Option 2: Download the Artifact
 
@@ -43,9 +44,11 @@ To use create_repo, you'll need to set your GitHub Personal Access Token as an e
 
 ```bash
 export GITHUB_TOKEN="your_github_token_here"
+```
 
 Then, you can create a new repository by running:
 ```bash
 ./create_repo <GitHubUsername> <RepositoryName>
+```
 
 Replace <GitHubUsername> with your GitHub username and <RepositoryName> with the desired name for your new repository.
